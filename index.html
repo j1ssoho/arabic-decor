@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>افكتات ديكور مخصصه</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon links -->
+    <link rel="icon" href="decor.png" sizes="16x16 32x32" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#e073c3">
+    <meta name="msapplication-TileColor" content="#e78ada">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph meta tags -->
+    <meta name="theme-color" content="#5865F2">
+    <meta property="og:title" content="Custom Avatar Decors">
+    <meta property="og:description" content="The largest collection of Avatar Decorations for the Decor Vencord Plugin.">
+    <meta property="og:image" content="https://i.imgur.com/CTkLbk3.png">
+    <meta property="og:url" content="https://jellys-space.github.io/custom-decors/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Largest Collection Of">
+</head>
+<body>
+    <div class="main-container">
+        <div class="image-container">
+            <img src="decor.png" alt="Decor" class="top-image">
+        </div>
+        <div class="title-container">
+            <h1>افكتات افتار مخصصه</h1>
+        </div>
+        <div class="description-container">   
+            <p>أكبر مجموعة من ديكورات الصور الرمزية لبرنامج 
+                يمكنك تنزيل برنامج فينكورد <a href="https://vencord.dev/download/">من هنا</a>  . بعد تثبيت فينكورد ، انتقل إلى إعدادات الديسكورد -> المكونات الإضافية وقم بتمكين الديكور!
+                ستحتاج إلى تغيير البيانات الوصفية لكل زخرفة عن طريق إعادة التحميل <a href="https://www.strerr.com/en/md5_hash_chanager.html">الصوره في هذا الموقع</a> ثم إعادة التنزيل</p>
+        </div>
+        <div class="new-releases-container">
+            <h2>:اصدارات جديده</h2>
+            <div class="new-releases">
+                <!-- New items will be inserted here -->
+            </div>
+        </div>
+        <div class="container">
+            <!-- APNG items will be inserted here -->
+        </div>
+        <div class="additional-text">
+            <p>هذا الموقع غير تجاري ولا يحتوي على إعلانات ومفتوح المصدر.</p>
+            <p>وعلى هذا النحو، فإن جميع الصور المستضافة على هذا الموقع مرخصة بموجب الاستخدام العادل. لقد تم الحصول عليها عبر المجال العام.</p>
+            <p><a href="tos.html">تحقق من الاعتمادات</a></p>
+        </div>
+    </div>
+    <script>
+        const newImages = [
+            "image9.png",
+            "image501.png",
+            "image399.png",
+            "image219.png",
+            "image217.png",
+        ];
+
+        const images = [
+            "image1.png",
+            "image2.png",
+            "image3.png",
+            "image4.png",
+            "image5.png",
+            "image6.png",
+            "image7.png",
+            "image8.png",
+            // Add more images as needed
+        ];
+
+        const container = document.querySelector('.container');
+        const newReleasesContainer = document.querySelector('.new-releases');
+
+        function createItem(image, isNew = false) {
+            const item = document.createElement('div');
+            item.className = 'item';
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'image-wrapper';
+
+            const defaultProfile = document.createElement('img');
+            defaultProfile.src = 'images/default-profile.png';
+            defaultProfile.alt = 'Default Profile';
+            defaultProfile.className = 'default-profile';
+            defaultProfile.loading = 'lazy';  // Lazy load default profile
+
+            const frame = document.createElement('img');
+            frame.src = `images/${image}`;
+            frame.alt = image;
+            frame.className = 'frame';
+            frame.loading = 'lazy';  // Lazy load frame
+
+            const link = document.createElement('a');
+            link.href = `images/${image}`;
+            link.className = 'download-link';
+            link.textContent = 'تحميل';
+            link.download = image;
+
+            wrapper.appendChild(defaultProfile);
+            wrapper.appendChild(frame);
+            item.appendChild(wrapper);
+            item.appendChild(link);
+            
+            if (isNew) {
+                const newBadge = document.createElement('img');
+                newBadge.src = 'new.png';
+                newBadge.alt = 'New';
+                newBadge.className = 'new-badge';
+                item.appendChild(newBadge);
+            }
+            
+            return item;
+        }
+
+        newImages.forEach(image => {
+            const item = createItem(image, true);
+            newReleasesContainer.appendChild(item);
+        });
+
+        images.forEach(image => {
+            const item = createItem(image);
+            container.appendChild(item);
+        });
+    </script>
+</body>
+</html>
